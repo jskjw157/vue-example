@@ -40,7 +40,10 @@
     "parserOptions": {
       "parser": "@babel/eslint-parser"
     },
-    "rules": {}
+    "rules": {
+        "space-before-function-paren": "off",
+        "indent": "off"
+    }
   },
   "browserslist": [
     "> 1%",
