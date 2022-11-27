@@ -48,6 +48,11 @@ const routes = [
     path: '/databinding/radioBox',
     name: 'DataBindingRadioBoxView',
     component: () => import(/* webpackChunkName: "databinding", webpackPrefetch:true */ '../views/1_databinding/DataBindingRadioBoxView.vue')
+  },
+  {
+    path: '/databinding/attribute',
+    name: 'DataBindingAttributeView',
+    component: () => import(/* webpackChunkName: "databinding", webpackPrefetch:true */ '../views/1_databinding/DataBindingAttributeView.vue')
   }
 ]
 
