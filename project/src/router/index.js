@@ -4,6 +4,7 @@ import HomeView from '../views/HomeView.vue'
 // 1. 페이지에 항상 나오는 컴포넌트는 상단에 import .. from .. 문법 사용(user가 처음 페이지 진입시 서버에서 해당파일을 내려받음)
 // 2. 페이지에서 항상 나오지 않으며 빈도수가 적거나 소스 코드가 적으면 () => import(/* webpackChunkName: ...*/  'vue 파일경로') 문법을 사용(다른페이지로 이동시 해당 컴포넌트를 서버에서 내려받음)
 // 3. 페이지에서 항상 나오지 않으며 빈도수가 많거나 소스 코드가 많으면 () => import(/* webpackChunkName: ... , webpackPrefetch:true */ 'vue 파일경로') 문법을 사용(다른페이지로 이동전 처음페이지 진입시 서버에서 캐시로 해당 컴포넌트를 내려받음)
+// 4. webpackChunkName으로 그룹화해서 각 컴포넌트를 같은 시점에 내려받을 수 있다. ex) 사용자메뉴진입 시 조회,편집 파일들을 그룹화해서 동시에 받는다.
 const routes = [
   {
     path: '/',
@@ -27,6 +28,11 @@ const routes = [
     path: '/databinding/html',
     name: 'DataBindingHtmlView',
     component: () => import(/* webpackChunkName: "databinding", webpackPrefetch:true */ '../views/1_databinding/DataBindingHtmlView.vue')
+  },
+  {
+    path: '/databinding/input',
+    name: 'DataBindingInputView',
+    component: () => import(/* webpackChunkName: "databinding", webpackPrefetch:true */ '../views/1_databinding/DataBindingInputView.vue')
   }
 ]
 
